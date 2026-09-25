@@ -72,10 +72,11 @@ export const SEMAKO_MODEL_DATA: CustomPortfolioData = {
   ],
   experiences: PRACTICAL_EXPERIENCES.map((exp) => ({
     id: exp.id,
-    title: exp.title,
+    title: exp.id === 'exp-maintenance-info' ? 'Installation et Maintenance en Informatique (IMI)' : exp.title,
     organization: exp.badge,
     location: 'Porto-Novo, Bénin',
     period: '2023 - Présent',
+    imageUrl: exp.id === 'exp-maintenance-info' ? '/profile.jpg' : undefined,
     description: exp.description,
     missions: exp.activities,
     tools: exp.tools,
@@ -85,6 +86,7 @@ export const SEMAKO_MODEL_DATA: CustomPortfolioData = {
     period: edu.durationOrYear,
     institution: edu.institution,
     degree: edu.degreeOrField ? `${edu.degreeOrField} — ${edu.status}` : edu.status,
+    imageUrl: edu.id === 'cursus-ltp-portonovo' ? '/profile.jpg' : undefined,
     description: edu.description,
   })),
   formations: ADDITIONAL_TRAINING.map((tr) => ({

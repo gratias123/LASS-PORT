@@ -100,6 +100,7 @@ const DEFAULT_OWNER_PORTFOLIO_DATA = {
       location: 'Porto-Novo, Bénin',
       period: '2023 - Présent',
       current: true,
+      imageUrl: '/profile.jpg',
       description: 'Pratique continue au sein des ateliers techniques : diagnostic de pannes, réinstallation complète de parcs et mise en œuvre de solutions réseau filaires fiables.',
       missions: [
         'Diagnostic méthodique de pannes matérielles et logicielles sur unités centrales et ordinateurs portables.',
@@ -216,6 +217,7 @@ const DEFAULT_OWNER_PORTFOLIO_DATA = {
       degree: 'Baccalauréat Technique - Filière IMI',
       field: 'Installations et Maintenance en Informatique (IMI)',
       status: 'En cours',
+      imageUrl: '/profile.jpg',
       description: 'Cursus professionnel complet couvrant l’architecture matérielle, le diagnostic électronique, les réseaux informatiques, les systèmes d’exploitation et la maintenance préventive.',
     },
   ],
