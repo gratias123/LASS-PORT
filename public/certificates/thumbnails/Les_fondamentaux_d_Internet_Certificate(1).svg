@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 424" width="100%" height="100%">
+  <rect width="600" height="424" fill="#FFFFFF"/>
+  <!-- Left Yellow Margin -->
+  <rect x="0" y="0" width="85" height="424" fill="#F5B718"/>
+  <g fill="#E09C00" opacity="0.45">
+    <circle cx="25" cy="30" r="3"/><circle cx="45" cy="30" r="3"/><circle cx="65" cy="30" r="3"/>
+    <circle cx="25" cy="50" r="3"/><circle cx="45" cy="50" r="3"/><circle cx="65" cy="50" r="3"/>
+    <circle cx="25" cy="70" r="3"/><circle cx="45" cy="70" r="3"/><circle cx="65" cy="70" r="3"/>
+    <rect x="15" y="90" width="55" height="3" rx="1.5"/>
+    <rect x="15" y="100" width="55" height="3" rx="1.5"/>
+    <rect x="15" y="110" width="55" height="3" rx="1.5"/>
+    <circle cx="25" cy="280" r="3"/><circle cx="45" cy="280" r="3"/><circle cx="65" cy="280" r="3"/>
+    <circle cx="25" cy="300" r="3"/><circle cx="45" cy="300" r="3"/><circle cx="65" cy="300" r="3"/>
+    <rect x="15" y="325" width="55" height="3" rx="1.5"/>
+    <rect x="15" y="335" width="55" height="3" rx="1.5"/>
+  </g>
+  <!-- Partner Badge -->
+  <circle cx="85" cy="200" r="32" fill="#B30E16" stroke="#E5A800" stroke-width="4"/>
+       <text x="85" y="206" font-family="Arial, sans-serif" font-weight="bold" font-size="16" fill="#FFFFFF" text-anchor="middle">GSMA</text>
+  
+  <!-- Header: MTN Skills Academy -->
+  <g transform="translate(342, 38)">
+    <rect x="-85" y="-12" width="40" height="20" rx="10" fill="#FFCC00" stroke="#000000" stroke-width="1.5"/>
+    <text x="-65" y="2" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#000000" text-anchor="middle">MTN</text>
+    <text x="-35" y="2" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#111827">Skills Academy</text>
+  </g>
+
+  <!-- Big Title -->
+  <text x="342" y="96" font-family="Arial, sans-serif" font-weight="800" font-size="34" fill="#0F172A" text-anchor="middle" letter-spacing="1">CERTIFICAT</text>
+  <text x="342" y="122" font-family="Arial, sans-serif" font-weight="500" font-size="19" fill="#334155" text-anchor="middle">De réussite</text>
+
+  <!-- Divider line -->
+  <line x1="140" y1="142" x2="550" y2="142" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Recipient -->
+  <text x="342" y="196" font-family="Arial, sans-serif" font-weight="700" font-size="28" fill="#0F172A" text-anchor="middle">SEMAKO Déo-Gratias</text>
+  <text x="342" y="226" font-family="Arial, sans-serif" font-size="14" fill="#64748B" text-anchor="middle">a terminé avec succès le cours</text>
+
+  <!-- Course Title -->
+  <text x="342" y="262" font-family="Arial, sans-serif" font-weight="700" font-size="18" fill="#0F172A" text-anchor="middle">"Les fondamentaux d'Internet"</text>
+  <text x="342" y="290" font-family="Arial, sans-serif" font-size="13" fill="#64748B" text-anchor="middle">le 5 août 2026</text>
+
+  <!-- Certificate Number -->
+  <text x="342" y="380" font-family="Courier, monospace" font-size="11" fill="#94A3B8" text-anchor="middle">N° de certificat: SKA1004772080520261025</text>
+  <!-- Outer border -->
+  <rect x="1" y="1" width="598" height="422" fill="none" stroke="#E2E8F0" stroke-width="2"/>
+</svg>
