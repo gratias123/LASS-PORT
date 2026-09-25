@@ -82,7 +82,7 @@ export const AcademicCurriculum: React.FC = () => {
             ))
           ) : (
             curriculumList.map((item, index) => {
-              const isBehanzin = item.id === 'cursus-behanzin';
+              const isDiploma = item.id === 'cursus-behanzin' || item.id === 'cursus-cep';
               return (
                 <ScrollReveal
                   key={item.id}
@@ -93,7 +93,7 @@ export const AcademicCurriculum: React.FC = () => {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                       <div>
                         <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                          {isBehanzin ? (
+                          {isDiploma ? (
                             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                               <Award className="w-3.5 h-3.5 text-emerald-600" />
                               <span>{isEn ? 'State Diploma Awarded' : "Diplôme d'État obtenu"}</span>

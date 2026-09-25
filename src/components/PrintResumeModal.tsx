@@ -134,7 +134,7 @@ export const PrintResumeModal: React.FC<PrintResumeModalProps> = ({
     () => [
       {
         id: 'exp-maintenance-postes',
-        title: 'MAINTENANCE DES POSTES DE TRAVAIL ET RÉSEAUX INFORMATIQUES',
+        title: 'INSTALLATION ET MAINTENANCE EN INFORMATIQUE (IMI)',
         organization: 'Lycée Technique et Professionnel de Porto-Novo',
         period: '2023 – Présent',
         missions: [

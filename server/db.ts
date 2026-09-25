@@ -95,7 +95,7 @@ const DEFAULT_OWNER_PORTFOLIO_DATA = {
   experiences: [
     {
       id: 'exp-1',
-      title: 'Maintenance des postes de travail et réseaux informatiques',
+      title: 'Installation et Maintenance en Informatique (IMI)',
       organization: 'Lycée Technique et Professionnel de Porto-Novo',
       location: 'Porto-Novo, Bénin',
       period: '2023 - Présent',
@@ -162,7 +162,7 @@ const DEFAULT_OWNER_PORTFOLIO_DATA = {
       title: 'Contribution à la culture libre et aux projets Wikimedia',
       organization: 'Wikimédiens du Bénin & initiatives libres',
       location: 'Bénin / En ligne',
-      period: '2024 - Présent',
+      period: '2025 – Présent',
       current: true,
       description: 'Participation bénévole à la valorisation du patrimoine documentaire et scientifique africain sur les plateformes collaboratives ouvertes.',
       missions: [
@@ -192,13 +192,13 @@ const DEFAULT_OWNER_PORTFOLIO_DATA = {
   ],
   education: [
     {
-      id: 'edu-1',
-      period: '2023 - 2026 (En cours)',
-      institution: 'Lycée Technique et Professionnel de Porto-Novo',
-      degree: 'Baccalauréat Technique - Filière IMI',
-      field: 'Installations et Maintenance en Informatique (IMI)',
-      status: 'En cours',
-      description: 'Cursus professionnel complet couvrant l’architecture matérielle, le diagnostic électronique, les réseaux informatiques, les systèmes d’exploitation et la maintenance préventive.',
+      id: 'edu-cep',
+      period: '2019',
+      institution: 'Enseignement primaire',
+      degree: 'Certificat d’Études Primaires (CEP)',
+      field: 'Enseignement primaire',
+      status: 'Diplôme d’État obtenu',
+      description: 'Études primaires sanctionnées avec succès par l’obtention du Certificat d’Études Primaires (CEP) en 2019.',
     },
     {
       id: 'edu-2',
@@ -208,6 +208,15 @@ const DEFAULT_OWNER_PORTFOLIO_DATA = {
       field: 'Enseignement secondaire général',
       status: 'Diplôme d’État obtenu',
       description: 'Formation générale solide ayant permis de développer des bases rigoureuses en sciences, raisonnement logique et expression écrite.',
+    },
+    {
+      id: 'edu-1',
+      period: '2023 - 2026 (En cours)',
+      institution: 'Lycée Technique et Professionnel de Porto-Novo',
+      degree: 'Baccalauréat Technique - Filière IMI',
+      field: 'Installations et Maintenance en Informatique (IMI)',
+      status: 'En cours',
+      description: 'Cursus professionnel complet couvrant l’architecture matérielle, le diagnostic électronique, les réseaux informatiques, les systèmes d’exploitation et la maintenance préventive.',
     },
   ],
   formations: [

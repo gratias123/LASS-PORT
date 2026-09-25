@@ -59,6 +59,15 @@ export const ABOUT_DATA_EN = {
 
 export const ACADEMIC_CURRICULUM_EN: AcademicCurriculumItem[] = [
   {
+    id: 'cursus-cep',
+    institution: 'Primary Education',
+    degreeOrField: 'Primary School Curriculum',
+    durationOrYear: '2019',
+    status: 'Diploma earned: CEP',
+    description:
+      'Primary education successfully completed with the Primary School Certificate (CEP) in 2019.',
+  },
+  {
     id: 'cursus-behanzin',
     institution: 'Lycée Béhanzin',
     degreeOrField: 'Secondary School Curriculum',
@@ -112,19 +121,18 @@ export const ADDITIONAL_TRAINING_EN: AdditionalTrainingItem[] = [
 
 export const EDUCATION_LIST_EN: EducationItem[] = [
   {
-    id: 'edu-ltp-portonovo',
-    title: 'Computer Installation and Maintenance (IMI)',
-    institution: 'Lycée Technique et Professionnel de Porto-Novo — Benin',
-    duration: '3 years',
-    status: 'en-cours',
-    isMain: true,
+    id: 'edu-cep',
+    title: 'Primary School Certificate (CEP)',
+    institution: 'Primary Education',
+    duration: '2019',
+    status: 'complete',
+    isMain: false,
     description:
-      'Professional vocational training at Lycée Technique et Professionnel de Porto-Novo, specializing in computer maintenance, fault diagnostics, networking, and system configuration.',
+      'Primary education successfully completed with the Primary School Certificate (CEP) in 2019.',
     keyLearnings: [
-      'Hardware diagnostics and workstation troubleshooting',
-      'Operating systems installation and configuration',
-      'RJ45 cabling and network cable crimping',
-      'Preventive maintenance and IT asset upkeep',
+      'Foundational learning skills',
+      'Arithmetic, reading and written expression',
+      'First state diploma completing primary education',
     ],
   },
   {
@@ -140,6 +148,22 @@ export const EDUCATION_LIST_EN: EducationItem[] = [
       'General education and scientific reasoning',
       'Study methodology and written expression',
       'Academic foundation preparatory to technical schooling',
+    ],
+  },
+  {
+    id: 'edu-ltp-portonovo',
+    title: 'Computer Installation and Maintenance (IMI)',
+    institution: 'Lycée Technique et Professionnel de Porto-Novo — Benin',
+    duration: '3 years',
+    status: 'en-cours',
+    isMain: true,
+    description:
+      'Professional vocational training at Lycée Technique et Professionnel de Porto-Novo, specializing in computer maintenance, fault diagnostics, networking, and system configuration.',
+    keyLearnings: [
+      'Hardware diagnostics and workstation troubleshooting',
+      'Operating systems installation and configuration',
+      'RJ45 cabling and network cable crimping',
+      'Preventive maintenance and IT asset upkeep',
     ],
   },
   {

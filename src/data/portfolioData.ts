@@ -59,6 +59,15 @@ export const ABOUT_DATA = {
 
 export const ACADEMIC_CURRICULUM: AcademicCurriculumItem[] = [
   {
+    id: 'cursus-cep',
+    institution: 'Enseignement primaire',
+    degreeOrField: 'Parcours primaire',
+    durationOrYear: '2019',
+    status: 'Diplôme obtenu : CEP',
+    description:
+      'Études primaires sanctionnées avec succès par l’obtention du Certificat d’Études Primaires (CEP) en 2019.',
+  },
+  {
     id: 'cursus-behanzin',
     institution: 'Lycée Béhanzin',
     degreeOrField: 'Parcours secondaire',
@@ -112,19 +121,18 @@ export const ADDITIONAL_TRAINING: AdditionalTrainingItem[] = [
 
 export const EDUCATION_LIST: EducationItem[] = [
   {
-    id: 'edu-ltp-portonovo',
-    title: 'Installations et Maintenance en Informatique (IMI)',
-    institution: 'Lycée Technique et Professionnel de Porto-Novo — Bénin',
-    duration: '3 ans',
-    status: 'en-cours',
-    isMain: true,
+    id: 'edu-cep',
+    title: 'Certificat d’Études Primaires (CEP)',
+    institution: 'Enseignement primaire',
+    duration: '2019',
+    status: 'complete',
+    isMain: false,
     description:
-      'Formation professionnelle suivie au Lycée Technique et Professionnel de Porto-Novo, axée sur la maintenance des ordinateurs, le diagnostic de pannes, les réseaux informatiques et la configuration système.',
+      'Études primaires sanctionnées avec succès par l’obtention du Certificat d’Études Primaires (CEP) en 2019.',
     keyLearnings: [
-      'Diagnostic matériel et dépannage des postes de travail',
-      'Installation et configuration des systèmes d’exploitation',
-      'Câblage RJ45 et sertissage de câbles réseau',
-      'Maintenance préventive et entretien des équipements informatiques',
+      'Acquisition des savoirs fondamentaux',
+      'Calcul, lecture et expression écrite',
+      'Premier diplôme d’État sanctionnant la fin des études primaires',
     ],
   },
   {
@@ -140,6 +148,22 @@ export const EDUCATION_LIST: EducationItem[] = [
       'Formation générale et raisonnement scientifique',
       'Méthodologie de travail et expression écrite',
       'Socle académique préparatoire à l’enseignement professionnel',
+    ],
+  },
+  {
+    id: 'edu-ltp-portonovo',
+    title: 'Installations et Maintenance en Informatique (IMI)',
+    institution: 'Lycée Technique et Professionnel de Porto-Novo — Bénin',
+    duration: '3 ans',
+    status: 'en-cours',
+    isMain: true,
+    description:
+      'Formation professionnelle suivie au Lycée Technique et Professionnel de Porto-Novo, axée sur la maintenance des ordinateurs, le diagnostic de pannes, les réseaux informatiques et la configuration système.',
+    keyLearnings: [
+      'Diagnostic matériel et dépannage des postes de travail',
+      'Installation et configuration des systèmes d’exploitation',
+      'Câblage RJ45 et sertissage de câbles réseau',
+      'Maintenance préventive et entretien des équipements informatiques',
     ],
   },
   {
