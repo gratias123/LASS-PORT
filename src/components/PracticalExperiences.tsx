@@ -36,7 +36,6 @@ export const PracticalExperiences: React.FC = () => {
             ? exp.tools
             : [isEn ? 'Technical tools' : 'Outils techniques'],
         location: exp.location,
-        imageUrl: exp.imageUrl,
       }));
     }
     return [];
@@ -98,101 +97,43 @@ export const PracticalExperiences: React.FC = () => {
                   {/* Card Container */}
                   <div className="bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] p-5 sm:p-7 hover:border-[#2563EB]/40 hover:shadow-md transition-all duration-300">
                     
-                    {exp.imageUrl ? (
-                      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 mb-4">
-                        {/* Cadre photo professionnel - même principe d'affichage que la photo de profil */}
-                        <div className="relative w-32 h-40 sm:w-36 sm:h-44 md:w-44 md:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-[#0F1B2D] border border-[#CBD5E1] shadow-xs ring-1 ring-[#2563EB]/25 shrink-0 transition-all duration-300">
-                          <img
-                            src={exp.imageUrl}
-                            alt={exp.title}
-                            className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.02]"
-                            loading="lazy"
-                          />
-                        </div>
+                    {/* Header: Period, Role, Structure */}
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2.5 pb-4 border-b border-[#E2E8F0]">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                          {/* Structure / Organisation */}
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#2563EB]/10 text-[#2563EB] text-xs font-bold font-heading">
+                            <Building2 className="w-3.5 h-3.5" />
+                            <span>{exp.category}</span>
+                          </span>
 
-                        {/* Contenu textuel principal */}
-                        <div className="flex-1 min-w-0 w-full">
-                          {/* Header: Period, Role, Structure */}
-                          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2.5 pb-3 sm:pb-4 border-b border-[#E2E8F0]">
-                            <div>
-                              <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                                {/* Structure / Organisation */}
-                                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#2563EB]/10 text-[#2563EB] text-xs font-bold font-heading">
-                                  <Building2 className="w-3.5 h-3.5" />
-                                  <span>{exp.category}</span>
-                                </span>
-
-                                {/* Period */}
-                                {exp.period && (
-                                  <span className="inline-flex items-center gap-1 text-xs font-medium text-[#64748B]">
-                                    <Calendar className="w-3.5 h-3.5" />
-                                    <span>{exp.period}</span>
-                                  </span>
-                                )}
-                              </div>
-
-                              {/* Role / Titre */}
-                              <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-heading leading-snug">
-                                {exp.title}
-                              </h3>
-                            </div>
-
-                            {/* Verified Badge */}
-                            <span className="self-start inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
-                              <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                              <span>{isEn ? 'Validated' : 'Réalisé'}</span>
+                          {/* Period */}
+                          {exp.period && (
+                            <span className="inline-flex items-center gap-1 text-xs font-medium text-[#64748B]">
+                              <Calendar className="w-3.5 h-3.5" />
+                              <span>{exp.period}</span>
                             </span>
-                          </div>
-
-                          {/* Description */}
-                          {exp.description && (
-                            <p className="py-3 text-sm sm:text-[14.5px] text-[#334155] leading-relaxed">
-                              {exp.description}
-                            </p>
                           )}
                         </div>
+
+                        {/* Role / Titre */}
+                        <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-heading leading-snug">
+                          {exp.title}
+                        </h3>
                       </div>
-                    ) : (
-                      <>
-                        {/* Header: Period, Role, Structure */}
-                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2.5 pb-4 border-b border-[#E2E8F0]">
-                          <div>
-                            <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                              {/* Structure / Organisation */}
-                              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#2563EB]/10 text-[#2563EB] text-xs font-bold font-heading">
-                                <Building2 className="w-3.5 h-3.5" />
-                                <span>{exp.category}</span>
-                              </span>
 
-                              {/* Period */}
-                              {exp.period && (
-                                <span className="inline-flex items-center gap-1 text-xs font-medium text-[#64748B]">
-                                  <Calendar className="w-3.5 h-3.5" />
-                                  <span>{exp.period}</span>
-                                </span>
-                              )}
-                            </div>
+                      {/* Verified Badge */}
+                      <span className="self-start inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                        <span>{isEn ? 'Validated' : 'Réalisé'}</span>
+                      </span>
+                    </div>
 
-                            {/* Role / Titre */}
-                            <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-heading leading-snug">
-                              {exp.title}
-                            </h3>
-                          </div>
-
-                          {/* Verified Badge */}
-                          <span className="self-start inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
-                            <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                            <span>{isEn ? 'Validated' : 'Réalisé'}</span>
-                          </span>
-                        </div>
-
-                        {/* Description */}
-                        {exp.description && (
-                          <p className="py-3.5 text-sm sm:text-[14.5px] text-[#334155] leading-relaxed">
-                            {exp.description}
-                          </p>
-                        )}
-                      </>
+                    {/* Description */}
+                    {exp.description && (
+                      <p className="py-3.5 text-sm sm:text-[14.5px] text-[#334155] leading-relaxed">
+                        {exp.description}
+                      </p>
                     )}
 
                     {/* Missions concrètes */}

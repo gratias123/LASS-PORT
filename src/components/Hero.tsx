@@ -94,7 +94,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onOpenPrint }) => {
                     id="hero-profile-photo"
                     src={photoUrl}
                     alt={fullName}
-                    className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.04]"
+                    className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
                     loading="eager"
                   />

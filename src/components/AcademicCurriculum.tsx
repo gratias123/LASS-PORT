@@ -52,74 +52,30 @@ export const AcademicCurriculum: React.FC = () => {
                 delay={index * 100}
               >
                 <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#E2E8F0] shadow-xs hover:border-[#2563EB]/40 hover:shadow-md transition-all">
-                  {item.imageUrl ? (
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
-                      {/* Cadre photo professionnel - même principe d'affichage que la photo de profil */}
-                      <div className="relative w-32 h-40 sm:w-36 sm:h-44 md:w-40 md:h-48 rounded-xl sm:rounded-2xl overflow-hidden bg-[#0F1B2D] border border-[#CBD5E1] shadow-xs ring-1 ring-[#2563EB]/25 shrink-0 transition-all duration-300">
-                        <img
-                          src={item.imageUrl}
-                          alt={item.institution}
-                          className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.02]"
-                          loading="lazy"
-                        />
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-bold bg-[#2563EB]/10 text-[#2563EB] border border-[#2563EB]/20">
+                          <GraduationCap className="w-3.5 h-3.5 text-[#2563EB]" />
+                          <span>{item.degree}</span>
+                        </span>
                       </div>
-
-                      <div className="flex-1 min-w-0 w-full">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-                          <div>
-                            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-bold bg-[#2563EB]/10 text-[#2563EB] border border-[#2563EB]/20">
-                                <GraduationCap className="w-3.5 h-3.5 text-[#2563EB]" />
-                                <span>{item.degree}</span>
-                              </span>
-                            </div>
-                            <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-heading flex items-center gap-2">
-                              <Building2 className="w-4 h-4 text-[#64748B] shrink-0" />
-                              <span>{item.institution}</span>
-                            </h3>
-                          </div>
-
-                          <div className="flex items-center gap-1.5 text-xs font-semibold text-[#475569] bg-[#F1F5F9] px-3 py-1.5 rounded-lg border border-[#CBD5E1]/60 shrink-0">
-                            <Calendar className="w-3.5 h-3.5 text-[#2563EB]" />
-                            <span>{item.period}</span>
-                          </div>
-                        </div>
-
-                        {item.description && (
-                          <p className="text-[#475569] text-xs sm:text-sm leading-relaxed">
-                            {item.description}
-                          </p>
-                        )}
-                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-heading flex items-center gap-2">
+                        <Building2 className="w-4 h-4 text-[#64748B] shrink-0" />
+                        <span>{item.institution}</span>
+                      </h3>
                     </div>
-                  ) : (
-                    <>
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-                        <div>
-                          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-bold bg-[#2563EB]/10 text-[#2563EB] border border-[#2563EB]/20">
-                              <GraduationCap className="w-3.5 h-3.5 text-[#2563EB]" />
-                              <span>{item.degree}</span>
-                            </span>
-                          </div>
-                          <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-heading flex items-center gap-2">
-                            <Building2 className="w-4 h-4 text-[#64748B] shrink-0" />
-                            <span>{item.institution}</span>
-                          </h3>
-                        </div>
 
-                        <div className="flex items-center gap-1.5 text-xs font-semibold text-[#475569] bg-[#F1F5F9] px-3 py-1.5 rounded-lg border border-[#CBD5E1]/60 shrink-0">
-                          <Calendar className="w-3.5 h-3.5 text-[#2563EB]" />
-                          <span>{item.period}</span>
-                        </div>
-                      </div>
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-[#475569] bg-[#F1F5F9] px-3 py-1.5 rounded-lg border border-[#CBD5E1]/60 shrink-0">
+                      <Calendar className="w-3.5 h-3.5 text-[#2563EB]" />
+                      <span>{item.period}</span>
+                    </div>
+                  </div>
 
-                      {item.description && (
-                        <p className="text-[#475569] text-xs sm:text-sm leading-relaxed">
-                          {item.description}
-                        </p>
-                      )}
-                    </>
+                  {item.description && (
+                    <p className="text-[#475569] text-xs sm:text-sm leading-relaxed">
+                      {item.description}
+                    </p>
                   )}
                 </div>
               </ScrollReveal>

@@ -16,7 +16,6 @@ export interface CustomExperienceItem {
   description: string;
   missions: string[];
   tools?: string[];
-  imageUrl?: string;
 }
 
 export interface CustomEducationItem {
@@ -27,7 +26,6 @@ export interface CustomEducationItem {
   field?: string;
   status?: string;
   description?: string;
-  imageUrl?: string;
 }
 
 export interface CustomFormationItem {
