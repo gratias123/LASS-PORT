@@ -33,11 +33,14 @@ class AuthService {
   private currentSession: AuthSession | null = null;
 
   constructor() {
-    this.loadUsers();
-    this.loadSession();
+    if (typeof window !== 'undefined') {
+      this.loadUsers();
+      this.loadSession();
+    }
   }
 
   private loadUsers() {
+    if (typeof window === 'undefined') return;
     try {
       const data = localStorage.getItem(USERS_STORAGE_KEY);
       if (data) {
@@ -50,6 +53,7 @@ class AuthService {
   }
 
   private saveUsers() {
+    if (typeof window === 'undefined') return;
     try {
       const list = Array.from(this.users.values());
       localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(list));
@@ -59,6 +63,7 @@ class AuthService {
   }
 
   private loadSession() {
+    if (typeof window === 'undefined') return;
     try {
       const sessStr = localStorage.getItem(SESSION_STORAGE_KEY);
       if (sessStr) {

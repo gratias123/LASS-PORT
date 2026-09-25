@@ -59,9 +59,15 @@ function parsePath(pathname: string, search: string): RouteMatch {
   return { route: 'home', path: '/' };
 }
 
-export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const RouterProvider: React.FC<{ children: React.ReactNode; initialPath?: string }> = ({
+  children,
+  initialPath,
+}) => {
   const [currentMatch, setCurrentMatch] = useState<RouteMatch>(() => {
-    return parsePath(window.location.pathname, window.location.search);
+    if (typeof window !== 'undefined') {
+      return parsePath(window.location.pathname, window.location.search);
+    }
+    return parsePath(initialPath || '/', '');
   });
 
   const navigate = useCallback((to: string) => {

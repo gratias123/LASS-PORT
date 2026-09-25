@@ -30,15 +30,22 @@ import { SEMAKO_MODEL_DATA } from './utils/portfolioModelAdapter';
 import { CustomPortfolioData } from './types/portfolioBuilder';
 import { apiClient } from './services/apiClient';
 
-function AppContent() {
+interface AppProps {
+  initialUrl?: string;
+  initialData?: CustomPortfolioData;
+}
+
+function AppContent({ initialData, initialUrl }: { initialData?: CustomPortfolioData; initialUrl?: string }) {
   const { user, isAuthenticated, isLoading } = useAuth();
-  const { route, slug, navigate } = useAppRouter();
+  const { route, slug, navigate } = useAppRouter(initialUrl);
 
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isPrintOpen, setIsPrintOpen] = useState(false);
   const [printCustomData, setPrintCustomData] = useState<CustomPortfolioData | undefined>(undefined);
   const [redirectReason, setRedirectReason] = useState<string | null>(null);
-  const [ownerPortfolioData, setOwnerPortfolioData] = useState<CustomPortfolioData>(SEMAKO_MODEL_DATA);
+  const [ownerPortfolioData, setOwnerPortfolioData] = useState<CustomPortfolioData>(
+    initialData || SEMAKO_MODEL_DATA
+  );
 
   // Load latest owner portfolio data from server
   useEffect(() => {
@@ -250,12 +257,12 @@ function AppContent() {
   );
 }
 
-export default function App() {
+export default function App({ initialUrl, initialData }: AppProps = {}) {
   return (
     <LanguageProvider>
-      <RouterProvider>
+      <RouterProvider initialPath={initialUrl}>
         <AuthProvider>
-          <AppContent />
+          <AppContent initialData={initialData} initialUrl={initialUrl} />
           <OfflineIndicator />
         </AuthProvider>
       </RouterProvider>

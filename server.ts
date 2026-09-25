@@ -709,21 +709,117 @@ app.get('/api/document/verify-exists', (req, res) => {
 });
 
 // ==========================================
-// 6. VITE MIDDLEWARE & SPA SERVING
+// 6. VITE MIDDLEWARE & SPA SERVING WITH SSR
 // ==========================================
 
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: 'spa',
+      appType: 'custom',
     });
     app.use(vite.middlewares);
+
+    app.get('*', async (req, res, next) => {
+      const url = req.originalUrl;
+      // Let API routes and static asset requests pass through
+      if (url.startsWith('/api') || path.extname(url.split('?')[0])) {
+        return next();
+      }
+
+      try {
+        const ownerData = platformDb.getOwnerPortfolio()?.data;
+        let template = fs.readFileSync(path.resolve(process.cwd(), 'index.html'), 'utf-8');
+        template = await vite.transformIndexHtml(url, template);
+        const { render } = await vite.ssrLoadModule('/src/entry-server.tsx');
+        const appHtml = render(url, ownerData);
+
+        const dataScript = ownerData
+          ? `<script id="__INITIAL_DATA__" type="application/json">${JSON.stringify(ownerData).replace(/</g, '\\u003c')}</script>`
+          : '';
+
+        let html = template;
+        if (appHtml) {
+          if (html.includes('<!--app-html-->')) {
+            html = html.replace('<!--app-html-->', appHtml);
+          } else {
+            html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+          }
+        }
+        html = html.replace('</body>', `${dataScript}\n  </body>`);
+
+        res.status(200).set({ 'Content-Type': 'text/html; charset=utf-8' }).end(html);
+      } catch (err: any) {
+        vite.ssrFixStacktrace(err);
+        console.error('[SSR Dev Error]', err);
+        try {
+          const fallbackTemplate = fs.readFileSync(path.resolve(process.cwd(), 'index.html'), 'utf-8');
+          const transformed = await vite.transformIndexHtml(url, fallbackTemplate);
+          res.status(200).set({ 'Content-Type': 'text/html; charset=utf-8' }).end(transformed);
+        } catch {
+          next(err);
+        }
+      }
+    });
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+    app.use(express.static(distPath, { index: false }));
+
+    const loadDynamic = (p: string) => new Function('specifier', 'return import(specifier)')(p);
+    let renderFn: ((url: string, data?: any) => string) | null = null;
+    try {
+      const serverEntryPath = path.join(distPath, 'server', 'entry-server.js');
+      if (fs.existsSync(serverEntryPath)) {
+        const serverModule = await loadDynamic(serverEntryPath);
+        renderFn = serverModule.render || serverModule.default?.render;
+      }
+    } catch (e) {
+      console.warn('[SSR Prod] Impossible de charger entry-server.js:', e);
+    }
+
+    app.get('*', (req, res, next) => {
+      const url = req.originalUrl;
+      if (url.startsWith('/api') || path.extname(url.split('?')[0])) {
+        return next();
+      }
+
+      try {
+        const ownerData = platformDb.getOwnerPortfolio()?.data;
+        const indexPath = path.join(distPath, 'index.html');
+        if (!fs.existsSync(indexPath)) {
+          return res.status(404).send('Not Found');
+        }
+
+        let template = fs.readFileSync(indexPath, 'utf-8');
+        let appHtml = '';
+
+        if (renderFn) {
+          try {
+            appHtml = renderFn(url, ownerData);
+          } catch (renderErr) {
+            console.error('[SSR Prod Render Error]', renderErr);
+          }
+        }
+
+        const dataScript = ownerData
+          ? `<script id="__INITIAL_DATA__" type="application/json">${JSON.stringify(ownerData).replace(/</g, '\\u003c')}</script>`
+          : '';
+
+        let html = template;
+        if (appHtml) {
+          if (html.includes('<!--app-html-->')) {
+            html = html.replace('<!--app-html-->', appHtml);
+          } else {
+            html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+          }
+        }
+        html = html.replace('</body>', `${dataScript}\n  </body>`);
+
+        res.status(200).set({ 'Content-Type': 'text/html; charset=utf-8' }).end(html);
+      } catch (err: any) {
+        console.error('[SSR Prod Error]', err);
+        res.sendFile(path.join(distPath, 'index.html'));
+      }
     });
   }
 

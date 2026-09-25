@@ -61,15 +61,15 @@ export function parsePath(targetPath: string, search: string = ''): RouteState {
   return { route: 'home', path: '/' };
 }
 
-function parseCurrentLocation(): RouteState {
+function parseCurrentLocation(initialUrl?: string): RouteState {
   if (typeof window === 'undefined') {
-    return { route: 'home', path: '/' };
+    return parsePath(initialUrl || '/', '');
   }
   return parsePath(window.location.pathname, window.location.search);
 }
 
-export function useAppRouter() {
-  const [routeState, setRouteState] = useState<RouteState>(parseCurrentLocation);
+export function useAppRouter(initialUrl?: string) {
+  const [routeState, setRouteState] = useState<RouteState>(() => parseCurrentLocation(initialUrl));
 
   useEffect(() => {
     const handlePopState = () => {
